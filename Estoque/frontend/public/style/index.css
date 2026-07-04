@@ -109,3 +109,15 @@ th {
     color: #b91c1c;
     font-weight: bold;
 }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
