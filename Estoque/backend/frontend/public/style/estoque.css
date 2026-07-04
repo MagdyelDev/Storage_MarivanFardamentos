@@ -1,0 +1,155 @@
+:root {
+    --azul-escuro: #154A90;
+    --azul-medio: #6192C0;
+    --azul-claro: #00B7FF;
+    --branco: #FFFFFF;
+    --vermelho: #c51818;
+    --amarelo: #fac400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f3f7fb;
+    color: #1f2937;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    color: var(--branco);
+    background-color: var(--azul-escuro);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.actions a,
+.actions button {
+    padding: 10px 14px;
+    background: var(--branco);
+    color: var(--azul-escuro);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.actions a,
+.actions button:hover {
+    background: var(--azul-claro);
+    color: var(--branco);
+}
+
+main {
+    padding: 24px;
+}
+
+.card {
+    margin-bottom: 18px;
+    padding: 20px;
+    background: var(--branco);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(21, 74, 144, 0.12);
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+input,
+button {
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+button {
+    background: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #216ed3;
+}
+
+.btn-secondary {
+    background: var(--vermelho);
+}
+.btn-secondary:hover {
+    background: #a00f0f;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+input[type="search"] {
+    flex: 1;
+    min-width: 220px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background: #eef5fb;
+    color: var(--azul-escuro);
+}
+
+.actions-cell button {
+    margin-right: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.actions-cell .btn-edit {
+    background: var(--amarelo);
+    color: #ffffff;
+}
+
+.actions-cell .btn-edit:hover {
+    background: #d8a80f;
+    color: #ffffff;
+}
+
+.actions-cell .btn-delete {
+    background: var(--vermelho);
+}
+
+.actions-cell .btn-delete:hover {
+    background: #a00f0f;
+}

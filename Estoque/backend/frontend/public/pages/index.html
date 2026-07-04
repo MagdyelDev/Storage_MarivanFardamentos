@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marivan Fardamentos - Estoque</title>
+    <link rel="stylesheet" href="../style/index.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Marivan Fardamentos</h1>
+        <p>Inicio</p>
+      </div>
+      <div class="actions">
+        <a href="/pages/estoque.html">Ir para estoque</a>
+        <button onclick="logout()">Sair</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Itens em falta</h2>
+        <div id="resumo" class="resumo"></div>
+      </section>
+
+      <section class="card">
+        <h2>Produtos com estoque baixo</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Quantidade</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-baixa"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="../js/index.js"></script>
+  </body>
+</html>
