@@ -6,7 +6,7 @@ O sistema permitirá o cadastro de fardamentos e demais itens comercializados pe
 
 Com essa solução, a Marivan Fardamentos terá maior controle sobre seu estoque, reduzindo erros, evitando perdas e agilizando o atendimento aos clientes, contribuindo para uma gestão mais organizada e eficiente.
 
---
+---
 
 Documentação Técnica do Projeto
 Objetivo da Aplicação Desenvolvida
