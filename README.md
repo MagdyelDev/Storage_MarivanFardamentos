@@ -8,53 +8,154 @@ Com essa solução, a Marivan Fardamentos terá maior controle sobre seu estoque
 
 ---
 
-Documentação Técnica do Projeto
-Objetivo da Aplicação Desenvolvida
+# Documentação Técnica do Projeto
 
-Este projeto tem como objetivo desenvolver um sistema para o controle de estoque da empresa Marivan Fardamentos. A aplicação foi criada para facilitar a organização dos produtos, substituindo o controle manual por um sistema mais rápido, seguro e eficiente.
+## Objetivo da Aplicação Desenvolvida
 
-Com o sistema, é possível cadastrar produtos, controlar a quantidade disponível em estoque, consultar informações rapidamente e acompanhar o valor dos itens armazenados. Dessa forma, a empresa consegue ter um melhor planejamento na reposição de materiais e evitar a falta de produtos importantes para a produção.
+O presente projeto consiste no desenvolvimento de um sistema para o controle de estoque da **Marivan Fardamentos**. O objetivo principal da aplicação é organizar e automatizar o gerenciamento dos produtos armazenados, substituindo o controle manual por um sistema mais seguro, rápido e eficiente.
 
-Arquitetura e Padrões Utilizados
+A aplicação permite cadastrar produtos, controlar a quantidade disponível em estoque, consultar informações rapidamente e acompanhar o valor total dos itens armazenados. Dessa forma, a empresa pode planejar melhor a reposição de materiais, reduzir erros no controle e evitar a falta de produtos importantes para a produção.
 
-O sistema foi desenvolvido utilizando a Arquitetura em Camadas, um padrão que organiza o projeto em partes independentes. Essa divisão facilita a manutenção do código, futuras melhorias e o trabalho em equipe.
+---
 
-As camadas utilizadas foram:
+## Arquitetura Utilizada
 
-Camada de Apresentação (UI): responsável pelas telas do sistema e pela interação com o usuário.
-Camada de Negócio (Service): responsável pelas regras de funcionamento do sistema, validações e cálculos.
-Camada de Dados (Repository): responsável por armazenar, consultar, atualizar e remover as informações do banco de dados.
-Como a Arquitetura Foi Aplicada
-Camada de Apresentação
+O sistema foi desenvolvido utilizando a **Arquitetura em Camadas (Layered Architecture)**, um padrão de arquitetura que organiza a aplicação em diferentes camadas, separando cada responsabilidade do sistema. Essa abordagem torna o código mais organizado, facilita a manutenção, melhora a reutilização de componentes e permite futuras expansões do projeto.
 
-Essa camada recebe os dados informados pelo usuário, como código, nome, quantidade e preço do produto. Também exibe a lista de produtos cadastrados e destaca em vermelho aqueles que estão com estoque zerado, facilitando a identificação dos itens que precisam ser repostos.
+Além da Arquitetura em Camadas, o projeto segue o princípio da **Separação de Responsabilidades (Separation of Concerns)**, organizando o código em diretórios específicos para cada função da aplicação.
 
-Camada de Negócio
+A estrutura do backend foi organizada da seguinte forma:
 
-Antes de salvar qualquer informação, essa camada verifica se os dados são válidos. Ela impede o cadastro de quantidades e preços negativos e realiza automaticamente o cálculo do valor total do produto, multiplicando a quantidade pelo preço unitário.
+- **config:** configurações gerais da aplicação.
+- **controllers:** recebem as requisições HTTP e controlam o fluxo da aplicação.
+- **database:** responsável pela conexão e armazenamento dos dados utilizando SQLite.
+- **middlewares:** executam validações e tratamentos antes das requisições chegarem aos controladores.
+- **repositories:** realizam o acesso ao banco de dados por meio das operações de consulta, cadastro, atualização e exclusão.
+- **routes:** definem todas as rotas disponíveis na API.
+- **services:** concentram as regras de negócio e validações do sistema.
+- **utils:** armazenam funções auxiliares reutilizadas em diferentes partes da aplicação.
 
-Fórmula utilizada:
+No frontend, os arquivos foram organizados em pastas específicas para separar imagens, estilos, scripts JavaScript, componentes reutilizáveis e páginas da aplicação, mantendo uma estrutura organizada e de fácil manutenção.
 
-Valor Total = Quantidade × Preço Unitário
+---
 
-Camada de Dados
+## Aplicação da Arquitetura
 
-Essa camada é responsável por armazenar todas as informações no banco de dados. Ela permite cadastrar, editar, excluir e consultar produtos, garantindo que os dados permaneçam salvos mesmo após o fechamento da aplicação.
+### Camada de Apresentação (UI)
 
-Regras de Negócio e Funcionalidades
+A camada de apresentação é responsável pela interface do usuário. Nela foram desenvolvidas as telas do sistema, formulários de cadastro, tabelas de produtos e toda a parte visual da aplicação.
+
+Também é responsável por destacar em vermelho os produtos cujo estoque está zerado, facilitando a identificação dos itens que precisam ser repostos.
+
+### Camada de Negócio (Service)
+
+A camada de negócio concentra todas as regras de funcionamento do sistema.
+
+Entre as principais responsabilidades estão:
+
+- Validar os dados informados pelo usuário.
+- Impedir o cadastro de valores negativos para quantidade e preço.
+- Calcular automaticamente o valor total de cada produto.
+
+A fórmula utilizada é:
+
+**Valor Total = Quantidade × Preço Unitário**
+
+### Camada de Dados (Repository)
+
+A camada de dados é responsável pela comunicação com o banco SQLite.
+
+Ela realiza operações como:
+
+- Cadastro de produtos.
+- Consulta de registros.
+- Atualização de informações.
+- Exclusão de produtos.
+
+Essa separação permite que alterações no banco de dados não afetem diretamente as demais camadas da aplicação.
+
+---
+
+## Funcionalidades Implementadas
 
 O sistema possui as seguintes funcionalidades:
 
-Cadastro de produtos com código único.
-Registro do nome, quantidade e preço de cada item.
-Cálculo automático do valor total dos produtos.
-Validação para impedir o cadastro de valores negativos.
-Destaque em vermelho para produtos com estoque igual a zero.
-Consulta e atualização das informações do estoque.
-Responsabilidades da Equipe
+- Cadastro de produtos.
+- Identificação dos produtos por código único.
+- Registro do nome, quantidade e preço unitário.
+- Cálculo automático do valor total.
+- Atualização de produtos.
+- Exclusão de produtos.
+- Consulta dos produtos cadastrados.
+- Controle de estoque.
+- Destaque visual para produtos com estoque zerado.
+- Validação de dados antes do armazenamento.
+- Persistência das informações utilizando SQLite.
 
-As atividades foram divididas entre os integrantes para facilitar o desenvolvimento do projeto.
+---
 
-Interface: desenvolvimento das telas, formulários e estilização da aplicação.
-Lógica de Negócio: implementação das validações, cálculos automáticos e regras do sistema.
-Banco de Dados: criação da estrutura de armazenamento, integração com o sistema e controle dos registros dos produtos.
+## Tecnologias Utilizadas
+
+### Backend
+
+- **Node.js**
+- **Express.js**
+- **SQLite**
+- **dotenv**
+
+### Frontend
+
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+
+---
+
+## Estrutura do Projeto
+
+```text
+Estoque/
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── database/
+│   │   ├── middlewares/
+│   │   ├── repositories/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   └── utils/
+│   │
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+│
+├── frontend/
+│   └── public/
+│       ├── assets/
+│       ├── components/
+│       ├── js/
+│       ├── pages/
+│       └── style/
+│
+└── README.md
+```
+
+---
+
+## Responsabilidades da Equipe
+
+As atividades foram divididas entre os integrantes da equipe para facilitar o desenvolvimento do projeto.
+
+- **Interface (Frontend):** desenvolvimento das telas, estilização e experiência do usuário.
+- **Lógica de Negócio:** implementação das regras do sistema, validações e cálculos automáticos.
+- **Persistência de Dados:** criação da estrutura do banco de dados, integração com SQLite e implementação das operações de cadastro, consulta, edição e exclusão de produtos.
+
+---
+
+## Considerações Finais
+
+O desenvolvimento deste projeto permitiu aplicar conceitos de desenvolvimento web utilizando **Node.js**, **Express** e **SQLite**, além da utilização da **Arquitetura em Camadas**, amplamente empregada em sistemas profissionais.
+
+A organização do código em camadas e diretórios específicos tornou o projeto mais limpo, modular e de fácil manutenção, facilitando futuras implementações e novas funcionalidades para o sistema de controle de estoque da **Marivan Fardamentos**.
